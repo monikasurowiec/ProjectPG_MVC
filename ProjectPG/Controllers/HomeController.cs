@@ -1,4 +1,5 @@
-﻿using ProjektPG.DAL;
+﻿using ProjectPG.ViewModels;
+using ProjektPG.DAL;
 using ProjektPG.Models;
 //using ProjektPG.ViewModels;
 using System;
@@ -16,48 +17,25 @@ namespace ProjektPG.Controllers
         //GET:Home
         public ActionResult Index()
         {
-            //ProductType newType = new ProductType { typeName = "Dżemy", typeDescription = "Mniam mniam dżemik" };
-            //db.ProductTypes.Add(newType);
-            //db.SaveChanges();
+            var random = db.Products.Where(r=> !r.noSeason).OrderBy(r=> Guid.NewGuid()).Take(4).ToList();
 
-            var typesList = db.ProductTypes.ToList();
 
-            return View();
+            var homeModel = new HomeViewModel()
+            {
+                RandomProducts = random
+            };
+
+            return View(homeModel);
         }
 
-        //GET:Home
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
-
-        //private StoreContext db = new StoreContext();
-        //// GET: Home
-        //public ActionResult Index()
-        //{
-        //    var genres = db.Genres.ToList();
-
-        //    var newArrivals = db.Albums.Where(a => !a.IsHidden).OrderByDescending(a => a.DateAdded).Take(3).ToList();
-
-        //    var bestsellers = db.Albums.Where(a => !a.IsHidden && a.IsBestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
-
-        //    var vm = new HomeViewModel()
-        //    {
-        //        Bestsellers = bestsellers,
-        //        Genres = genres,
-        //        NewArrivals = newArrivals
-        //    };
-
-        //    return View(vm);
-
-        //}
-        //// GET: Home
-        public ActionResult StaticContent(string viewname)
+        //GET: Home
+        public ActionResult Static(string staticname)
         {
 
-            return View(viewname);
+            return View(staticname);
 
         }
+
+
     }
 }

@@ -14,6 +14,25 @@ namespace ProjectPG
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ProductDetails",
+                url: "{productname}.html",
+                defaults: new { controller = "Offer", action = "Details" }
+                );
+
+            routes.MapRoute(
+                name: "StaticPages",
+                url: "{staticname}.html",
+                defaults: new { controller = "Home", action = "Static" }
+                );
+
+            routes.MapRoute(
+                name: "ProductList",
+                url: "{typename}",
+                defaults: new { controller = "Offer", action = "List" },
+                constraints: new { genrename = @"[\w& ]+" }
+                );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

@@ -20,7 +20,7 @@ namespace ProjektPG.Models
         public decimal productPrice { get; set; }
         public bool isCuttingPrice { get; set; }
 
-        public bool isSeason { get; set; }
+        public bool noSeason { get; set; }
 
         public virtual ProductType ProductType { get; set; }
     }

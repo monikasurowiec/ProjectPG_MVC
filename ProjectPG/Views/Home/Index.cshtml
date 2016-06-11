@@ -1,174 +1,49 @@
 ﻿
+@model ProjectPG.ViewModels.HomeViewModel
+
 @{
-    ViewBag.Title = "Witaj";
+    ViewBag.Title = "NieGotuj-zamawiaj pyszne jedzenie";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 
 
-    <nav class="genres-horizontal">
-        <ul>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/rock.png); ">
-                    Rock
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/rnb.png); ">
-                    R&B
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/electro.png); ">
-                    Electronic
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/metal.png); ">
-                    Metal
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/pop.png); ">
-                    Pop
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/classics.png); ">
-                    Classical
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/jazz.png); ">
-                    Jazz
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/reagge.png); ">
-                    Reagge
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/other.png); ">
-                    Inne
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/hiphop.png); ">
-                    Hip Hop
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/alternative.png); ">
-                    Alternative
-                </a>
-            </li>
-            <li>
-                <a href="" style="background-image: url(../Content/Genre-icons/promos.png); ">
-                    Promocje
-                </a>
-            </li>
-        </ul>
-        <a href="">
-            <img id="baner-main" src="../Content/Images/baner-main.png" />
-        </a>
-    </nav>
+<div class="index-content">
+    <h2 class="index-header">
+        Zamów online pyszne domowe jedzenie<br />
+        odbierz już następnego dnia
+    </h2>
 
-    <section>
-        <ul class="ThreeColumnsCoversList large-cover-list">
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/1.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/2.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="newFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/3.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
 
-    <section>
-        <ul class="ThreeColumnsCoversList large-cover-list">
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/1.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/2.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="addtocartlink" href="aaaa">
-                        <img src="../Content/Images/cart.png" />
-                    </a>
-                    <a class="productdetailslink" href="asd">
-                        <div class="bestsellerFlag"></div>
-                        <img class="album-cover" src="../Content/Covers/3.png" />
-                        <h1>
-                            Testowy obrazek
-                        </h1>
-                    </a>
-                </article>
-            </li>
-        </ul>
-    </section>
+    <p class="index-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae ipsum eros. Sed vitae metus purus. Cras malesuada egestas imperdiet. Sed eget vestibulum turpis.
+        Phasellus non fermentum odio. Mauris ac dolor ornare, efficitur purus vitae, faucibus augue. Cras malesuada euismod nisl, in molestie mauris finibus ullamcorper.
+        Cras sagittis euismod augue, id tristique dolor aliquam finibus. Donec et mauris congue, sollicitudin lectus posuere, gravida ipsum.<br /><br/>
+            Suspendisse dictum magna commodo, fermentum neque non, tincidunt metus. Donec convallis ut purus eget maximus. In scelerisque mauris nec elit rutrum, at posuere dui ullamcorper.
+        Morbi fringilla eu nibh eu tincidunt. Sed porttitor ac lacus et elementum. Etiam quam diam, consequat ac bibendum ut, viverra a purus. Aenean scelerisque enim vel sem imperdiet hendrerit.
+        Ut diam arcu, hendrerit at faucibus eget, interdum vel lorem.
+    </p>
 
-   
+    <div id="button-toproducts">
+        <a id="link-toproducts" href="@Url.Content("~/")">  Sprawdź naszą ofertę i zamów pyszne jedzenie</a>
+    </div>
 
-</body>
-</html>
+    <div id="four-products">
+        @foreach (var prod in Model.RandomProducts)
+        {
+            <a class="links-toproducts" href="aaaa">
+                <img class="products-index" src="~/Content/ProductsFotos/@prod.productPictureName" />
+            </a>
+        }
+
+        <div style="clear:both;"></div>
+    </div>
+
+
+
+
+</div>
+<div style="clear:both;"></div>
+
+
+

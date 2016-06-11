@@ -19,74 +19,183 @@ namespace ProjectPG.DAL
 
         private void SeedData(DatabaseContext dataContext)
         {
-            List<ProductType> types = new List<ProductType>
+            var types = new List<ProductType>
             {
                 new ProductType()
                 {
                      productTypeId=1,
-                     typeName ="Konfitury",
+                     typeName ="Dania mączne",
+                     typeUrlName="dania-maczne",
                      typeDescription ="Tu w przyszłości będzie opis kategorii."
                 },
                 new ProductType()
                 {
                      productTypeId=2,
-                     typeName ="Musy",
+                     typeName ="Dania mięsne",
+                     typeUrlName="dania-miesne",
                      typeDescription ="Tu w przyszłości będzie opis kategorii."
                 },
                 new ProductType()
                 {
                      productTypeId=3,
-                     typeName ="Kompoty",
+                     typeName ="Przetwory",
+                     typeUrlName="przetwory",
                      typeDescription ="Tu w przyszłości będzie opis kategorii."
                 },
-                 new ProductType()
+                new ProductType()
                 {
-                     productTypeId=3,
-                     typeName ="Pikle",
+                     productTypeId=4,
+                     typeName ="Ciasta",
+                     typeUrlName="ciasta",
                      typeDescription ="Tu w przyszłości będzie opis kategorii."
                 },
-            };
+   
 
+            };
             types.ForEach(t => dataContext.ProductTypes.Add(t));
             dataContext.SaveChanges();
-
-            List<Product> products = new List<Product>
+        
+            var products = new List<Product>
             {
                 new Product()
                 {
-                    productName="Konfitura wiśniowa",
+                    productName="Pierogi z mięsem",
+                    productUrlName="pierogi-z-miesem",
                     productDescription="Tu będzie opis produktu",
-                    productPrice=6,
-                    productCapacity=250,
-                    productPictureName="cherry.png",
+                    productPrice=18,
+                    productCapacity=1000,
+                    productPictureName="pierogi_mieso.jpg",
                     productTypeId=1
                 },
                 new Product()
                 {
-                    productName="Konfitura truskawkowa",
+                    productName="Pierogi z truskawkami",
+                    productUrlName="pierogi-z-truskawkami",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=17,
+                    productCapacity=1000,
+                    productPictureName="pierogi_truskawki.jpg",
+                    productTypeId=1
+                },
+                new Product()
+                {
+                    productName="Kluski leniwe",
+                    productUrlName="kluski-leniwe",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=12,
+                    productCapacity=1000,
+                    productPictureName="leniwe.jpg",
+                    productTypeId=1
+                },
+                new Product()
+                {
+                    productName="Devolaile",
+                    productUrlName="devolaile",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=15,
+                    productCapacity=500,
+                    productPictureName="devolaile.jpg",
+                    productTypeId=2
+                },
+                 new Product()
+                {
+                    productName="Kotlety schabowe",
+                    productUrlName="kotlety-schabowe",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=16,
+                    productCapacity=500,
+                    productPictureName="kotlet.jpg",
+                    productTypeId=2
+                },
+                new Product()
+                {
+                    productName="Gulasz wołowy",
+                    productUrlName="gulasz-wolowy",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=20,
+                    productCapacity=500,
+                    productPictureName="gulasz.jpg",
+                    productTypeId=2
+                },
+                 new Product()
+                {
+                    productName="Zrazy wołowe",
+                    productUrlName="zrazy-wolowe",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=21,
+                    productCapacity=500,
+                    productPictureName="zrazy.jpg",
+                    productTypeId=2
+                },
+                new Product()
+                {
+                    productName="Powidła śliwkowe",
+                    productUrlName="powidla-sliwkowe",
                     productDescription="Tu będzie opis produktu",
                     productPrice=5,
                     productCapacity=250,
-                    productPictureName="cherry.png",
-                    productTypeId=1
+                    productPictureName="powidla.jpg",
+                    productTypeId=3
                 },
-                new Product()
+                 new Product()
                 {
-                    productName="Konfitura śliwkowa",
-                    productDescription="Tu będzie opis produktu",
-                    productPrice=7,
-                    productCapacity=250,
-                    productPictureName="cherry.png",
-                    productTypeId=1
-                },
-                new Product()
-                {
-                    productName="Konfitura jagodowa",
+                    productName="Dżem truskawkowy",
+                    productUrlName="dzem-truskawkowy",
                     productDescription="Tu będzie opis produktu",
                     productPrice=7,
                     productCapacity=200,
-                    productPictureName="cherry.png",
-                    productTypeId=1
+                    productPictureName="dzem.jpg",
+                    productTypeId=3
+                },
+                 new Product()
+                {
+                    productName="Kompot truskawkowy",
+                    productUrlName="kompot-truskawkowy",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=9,
+                    productCapacity=500,
+                    productPictureName="kompot.jpg",
+                    productTypeId=3
+                },
+                new Product()
+                {
+                    productName="Ciasto czekoladowe",
+                    productUrlName="ciasto-czekoladowe",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=18,
+                    productCapacity=1000,
+                    productPictureName="czekoladowe.jpg",
+                    productTypeId=4
+                },
+                new Product()
+                {
+                    productName="Sernik z brzoskwiniami",
+                    productUrlName="sernik-z-brzoskwiniami",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=22,
+                    productCapacity=1000,
+                    productPictureName="sernik.jpg",
+                    productTypeId=4
+                },
+                new Product()
+                {
+                    productName="Ciasto jogurtowe z truskawkami",
+                    productUrlName="ciasto-jogurtowe",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=17,
+                    productCapacity=1000,
+                    productPictureName="truskawkowe.jpg",
+                    productTypeId=4
+                },
+                new Product()
+                {
+                    productName="Jabłecznik",
+                    productUrlName="jablecznik",
+                    productDescription="Tu będzie opis produktu",
+                    productPrice=16,
+                    productCapacity=1000,
+                    productPictureName="jablecznik.jpg",
+                    productTypeId=4
                 },
             };
             products.ForEach(p => dataContext.Products.Add(p));

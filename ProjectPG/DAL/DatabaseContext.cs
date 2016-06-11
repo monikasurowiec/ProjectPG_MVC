@@ -10,7 +10,8 @@ namespace ProjektPG.DAL
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext():base("ConnectToDatabase")
+        public DatabaseContext()
+          //  :base("ConnectToDatabase")
         {
 
         }
@@ -24,6 +25,7 @@ namespace ProjektPG.DAL
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public object Product { get; internal set; }
     }
 
 }

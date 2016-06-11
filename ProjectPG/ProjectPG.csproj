@@ -125,9 +125,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\logoIcon.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="prototype\layout.html" />
+    <Content Include="prototype\Store.html" />
+    <Content Include="prototype\StorePage.html" />
+    <Content Include="Content\Style.css" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -141,11 +145,11 @@
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
-    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OfferController.cs" />
     <Compile Include="DAL\DatabaseContext.cs" />
     <Compile Include="DAL\DatabaseInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +160,7 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -168,6 +173,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_MainLayout - Copy.cshtml" />
+    <Content Include="Views\Home\Kontakt.cshtml" />
+    <Content Include="Views\Home\Regulamin.cshtml" />
+    <Content Include="Views\Home\Dostawcy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,6 +187,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\ProductsFotos\" />
+    <Folder Include="Views\Offer\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

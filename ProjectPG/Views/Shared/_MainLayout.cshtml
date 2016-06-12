@@ -2,6 +2,16 @@
 @{
     Layout = null;
 }
+@using ProjectPG.Models
+@{
+    var order = (Order) Session["order"] ;
+
+    /*int quantity = 0;
+    foreach (OrderProduct orderProduct in order.orderProduct)
+    {
+        quantity = quantity + orderProduct.count;
+    }*/
+ }
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,16 +22,21 @@
     <meta name="keywords" content="dania na zamówienie, domowe jedzenie, zdrowe jedzenie, naturalne składniki, domowa kuchnia, zamów jedzenie, pierogi, kluski, przetwory, weki, Gdańsk, Gdynia, Sopot, Trójmiasto" />
     <link href="@Url.Content("~/Content/Style.css")" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
 </head>
 <body>
 
     <div id="container">
 
         <div id="top-menu">
-            <a class="top-menu-buttons" href="@Url.Content("~/")">Strona główna</a>
-            <a class="top-menu-buttons" href="@Url.Content("~/")">Sklep</a>
-            <a class="top-menu-buttons" href="@Url.Content("~/")">Zamówienie</a>
+            <div>
+                <a class="top-menu-buttons" href="@Url.Content("~/")">Strona główna</a>
+                <a class="top-menu-buttons" href="@Url.Action("List", "Offer", new { typename = "wszystko"})">Produkty</a>
+            </div>
+            <div style="float:right">
+                <a class="top-menu-buttons" href="@Url.Content("~/")">Zamówienie</a>
+                <div>Ilość: <spam id="quantity">@order.orderProduct.Count</spam></div>
+            </div>
             <div style="clear:both;"></div>
         </div>
 

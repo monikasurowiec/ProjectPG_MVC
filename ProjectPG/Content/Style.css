@@ -93,7 +93,6 @@
     float:left;
     width:300px;
     background-color:lightgray;
-    min-height:410px;
 
 }
 
@@ -104,6 +103,15 @@
     border-bottom:2px solid #6c6b6b;
     text-align:center;
     text-decoration: none;
+}
+
+.menu-buttons:last-of-type
+{
+    border-bottom:0px solid #6c6b6b;
+}
+.menu-buttons.active 
+{
+    border-left:5px solid #a71515;
 }
 
 .menu-buttons:hover
@@ -120,7 +128,6 @@
     text-align:justify;
     float:right;
     min-height:410px;
-    padding-top:25px;
     padding-left:25px;
 }
 

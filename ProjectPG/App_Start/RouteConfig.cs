@@ -27,9 +27,8 @@ namespace ProjectPG
 
             routes.MapRoute(
                 name: "ProductList",
-                url: "{typename}",
-                defaults: new { controller = "Offer", action = "List" },
-                constraints: new { genrename = @"[\w& ]+" }
+                url: "produkty/{typename}",
+                defaults: new { controller = "Offer", action = "List" }
                 );
 
             routes.MapRoute(

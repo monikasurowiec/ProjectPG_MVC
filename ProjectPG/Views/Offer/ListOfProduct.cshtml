@@ -1,21 +1,56 @@
-﻿@using ProjectPG
+﻿
+@{
+    List<ProjectPG.Models.Product> listProduct = ViewBag.listProduct;
+}
+<script>
+    $(document).ready(function () {
 
-@model  IEnumerable<ProjectPG.Models.Product> 
+        $('.js-order').click(function () {
+
+            var $produkt = $(this).closest('.js-product');
+            var productId = $produkt.attr('data-productId');
+            var productName = $produkt.find('.js-productName').text();
+            var count = $produkt.find('input').val();
+
+            $.ajax({
+                method: 'GET',
+                url: '/Offer/AddOrder',
+                data: {
+                    'productId': productId,
+                    'count': count
+                    }
+               })
+              .done(function (msg) {
+                  if (msg == 1) {
+                      alert("Dodano produkt " + productName);
+                      var quantity = parseInt($("#quantity").text()) + 1;
+                      $("#quantity").text(quantity);
+                  }
+                  else {
+                      alert("Nie dodano poduktu");
+                  }
+              });
+        });
+
+    });
+</script>
 
 <div class="site-content">
-    @*@foreach (var product in Model)
+    @foreach (var product in listProduct)
     {
+        <div class="product-info js-product" data-productId="@product.productId">
+            <img class="products-index" src="~/Content/ProductsFotos/@product.productPictureName" />
 
-    }*@
-    <div class="product-info">
-        <img class="products-index" src="~/Content/ProductsFotos/mus.jpg" />
-
-        <div class="product-txt">
-            <p>sdfdsgfxbd sfbfdhbdgvngcmf fhdjjgfjf dfhdghdjfjfjfhjh</p>
+            <div class="product-txt">
+                <h4 class="js-productName">@product.productName</h4>
+                <p>
+                    <span>@product.productPrice</span>
+                </p>
+                <input type="number"  name="quantity" min="1" max="10" value="1">
+                <div class="order js-order">Zamów</div>
+            </div>
+            <div style="clear:both;"></div>
         </div>
-        <div style="clear:both;"></div>
-    </div>
-
-
+    }
 
 </div>

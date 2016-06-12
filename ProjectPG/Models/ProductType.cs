@@ -11,7 +11,7 @@ namespace ProjectPG.Models
         public string typeName { get; set; }
         public string typeDescription { get; set; }
         public string typePicture { get; set; }
-
+        
         public string typeUrlName { get; set; }
 
 

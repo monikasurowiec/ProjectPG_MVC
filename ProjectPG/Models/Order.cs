@@ -8,7 +8,7 @@ namespace ProjectPG.Models
 {
     public class Order
     {
-        public int orderId { get; set; }
+        public Guid orderId { get; set; }
 
         [StringLength(30)]
         public string firstName { get; set; }
@@ -24,7 +24,7 @@ namespace ProjectPG.Models
         public DateTime dataCreated { get; set; }
         public orderStatus orderStatus { get; set; }
         public decimal totalPrice { get; set; }
-        public List<OrderProduct> OrderProduct { get; set; }
+        public List<OrderProduct> orderProduct { get; set; }
     }
 
     public enum orderStatus

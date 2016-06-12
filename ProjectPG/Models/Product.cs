@@ -22,6 +22,6 @@ namespace ProjectPG.Models
 
         public bool noSeason { get; set; }
 
-        public virtual ProductType ProductType { get; set; }
+        public virtual ProductType productType { get; set; }
     }
 }

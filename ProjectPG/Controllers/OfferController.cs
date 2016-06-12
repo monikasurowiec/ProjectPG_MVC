@@ -25,25 +25,59 @@ namespace ProjectPG.Controllers
             return View();
         }
 
+
+
         public ActionResult List(string typename)
         {
+            ViewBag.activeTypeName = typename;
+
+            List<ProductType> listProductType = db.ProductTypes.ToList();
+            listProductType.Add(
+                new ProductType()
+                {
+                    typeName = "Wszystko",
+                    typeUrlName = "wszystko",
+                    typeDescription = "Wszystkie dania"
+                });
+            ViewBag.listProductType = listProductType;
+
+
+            List<Product> listProduct = new List<Product>();
+            if (typename == "wszystko")
+            {
+                listProduct = db.Products.ToList();
+            }
+            else
+            {
+                listProduct = db.Products.Where(l=>l.productType.typeUrlName==typename).ToList();
+            }
+            ViewBag.listProduct = listProduct;
+
+
             return View();
         }
 
-        [ChildActionOnly]
-        public ActionResult ListMenu()
+
+
+        /* Api */
+        public ActionResult AddOrder(int productId, int count)
         {
 
-            List<ProductType> typeNames = db.ProductTypes.ToList();
-            
-            //var typename = new ListMenuModel()
-            //{
-            //    Types = typeNames
-            //}; 
-            //return PartialView(typename);
+            Order order = (Order) Session["order"];
 
-            ViewBag.lista = typeNames;
-            return PartialView();
+            OrderProduct product = new OrderProduct()
+            {
+                productId = productId,
+                orderId = order.orderId,
+                count = count
+            };
+
+            order.orderProduct.Add(product);
+
+            Session["order"] = order;
+
+            return Content("1"); ;
         }
+
     }
 }

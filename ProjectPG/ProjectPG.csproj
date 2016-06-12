@@ -142,6 +142,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Azure\Azure.PNG" />
     <Content Include="Content\logoIcon.png" />
     <Content Include="Content\ProductsFotos\czekoladowe.jpg" />
     <Content Include="Content\ProductsFotos\devolaile.JPG" />
@@ -207,7 +208,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Shared\_MainLayout - Copy.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Dostawcy.cshtml" />

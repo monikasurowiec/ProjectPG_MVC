@@ -1,7 +1,6 @@
 ﻿using ProjectPG.ViewModels;
 using ProjektPG.DAL;
 using ProjektPG.Models;
-//using ProjektPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

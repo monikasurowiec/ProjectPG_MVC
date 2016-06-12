@@ -1,0 +1,14 @@
+﻿@model ProjectPG.ViewModels.ListMenuModel
+
+
+<div id="content">
+    <div id="side-bar">
+        @foreach (var type in Model.Types)
+            {
+            <div class="menu-buttons">
+                <a href="@Url.Action("List","Offer", new { typename = type.typeUrlName})">@type.typeName</a>
+            </div>
+        }
+
+    </div>
+</div>

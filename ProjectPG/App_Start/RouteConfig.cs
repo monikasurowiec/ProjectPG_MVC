@@ -21,7 +21,7 @@ namespace ProjectPG
 
             routes.MapRoute(
                 name: "StaticPages",
-                url: "{staticname}.html",
+                url: "podstrona/{staticname}",
                 defaults: new { controller = "Home", action = "Static" }
                 );
 

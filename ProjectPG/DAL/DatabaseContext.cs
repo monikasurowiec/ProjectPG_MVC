@@ -1,12 +1,12 @@
 ﻿using ProjectPG.DAL;
-using ProjektPG.Models;
+using ProjectPG.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace ProjektPG.DAL
+namespace ProjectPG.DAL
 {
     public class DatabaseContext : DbContext
     {

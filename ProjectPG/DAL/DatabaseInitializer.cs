@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using ProjektPG.DAL;
-using ProjektPG.Models;
+using ProjectPG.DAL;
+using ProjectPG.Models;
 using System.Data.Entity.Migrations;
 
 namespace ProjectPG.DAL

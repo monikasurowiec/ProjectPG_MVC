@@ -1,5 +1,6 @@
 ﻿using ProjectPG.ViewModels;
-using ProjektPG.DAL;
+using ProjectPG.DAL;
+using ProjectPG.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +34,16 @@ namespace ProjectPG.Controllers
         public ActionResult ListMenu()
         {
 
-            var typeNames = db.ProductTypes.ToList();
+            List<ProductType> typeNames = db.ProductTypes.ToList();
+            
+            //var typename = new ListMenuModel()
+            //{
+            //    Types = typeNames
+            //}; 
+            //return PartialView(typename);
 
-            var typename = new ListMenuModel()
-            {
-                Types = typeNames
-            };
-
-            return PartialView(typename);
+            ViewBag.lista = typeNames;
+            return PartialView();
         }
     }
 }

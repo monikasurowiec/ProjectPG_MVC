@@ -1,12 +1,15 @@
-﻿@model ProjectPG.ViewModels.ListMenuModel
+﻿@*@model IEnumerable<ProjectPG.Models.ProductType>*@
 
+@{
+    List<ProjectPG.Models.ProductType> listProductType = ViewBag.listProductType;
+}
 
 <div id="content">
     <div id="side-bar">
-        @foreach (var type in Model.Types)
+        @foreach (var type in listProductType)
             {
             <div class="menu-buttons">
-                <a href="@Url.Action("List","Offer", new { typename = type.typeUrlName})">@type.typeName</a>
+                <a href="@Url.Action("List","Offer", new { typename = type.typeUrlName })">@type.typeName</a>
             </div>
         }
 

@@ -1,13 +1,13 @@
 ﻿using ProjectPG.ViewModels;
-using ProjektPG.DAL;
-using ProjektPG.Models;
+using ProjectPG.DAL;
+using ProjectPG.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjektPG.Controllers
+namespace ProjectPG.Controllers
 {
     public class HomeController : Controller
     {

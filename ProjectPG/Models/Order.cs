@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjektPG.Models
+namespace ProjectPG.Models
 {
     public class Order
     {

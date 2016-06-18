@@ -15,21 +15,13 @@ namespace ProjectPG.Models
 
         [StringLength(40)]
         public string lastName { get; set; }
-       
-        [StringLength(50)]
-        public string postCode { get; set; } 
-        public string city { get; set; }
+
         public string email { get; set; }
-      
+
         public DateTime dataCreated { get; set; }
-        public orderStatus orderStatus { get; set; }
+        public bool isDiscount { get; set; }
         public decimal totalPrice { get; set; }
         public List<OrderProduct> orderProduct { get; set; }
     }
-
-    public enum orderStatus
-    {
-        New,
-        Ready
-    }
 }
+    

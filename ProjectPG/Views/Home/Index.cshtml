@@ -31,9 +31,10 @@ nibus. Donec et mauris congue, sollicitudin lectus posuere, gravida ipsum.<br />
     <div id="four-products">
         @foreach (var prod in Model.RandomProducts)
         {
-            <a class="links-toproducts" href="aaaa">
-                <img class="products-index" src="~/Content/ProductsFotos/@prod.productPictureName" />
-            </a>
+            <div class="links-toproducts products-index"   style="background-image:url('/Content/ProductsFotos/@prod.productPictureName')">
+                
+                <div style="margin-top:250px;">zamów</div>
+            </div>
         }
 
         <div style="clear:both;"></div>

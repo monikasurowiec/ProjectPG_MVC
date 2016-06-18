@@ -188,10 +188,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ISessionCart.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\SessionCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ListMenuModel.cs" />
@@ -214,6 +216,7 @@
     <Content Include="Views\Offer\ListMenu.cshtml" />
     <Content Include="Views\Offer\List.cshtml" />
     <Content Include="Views\Offer\ListOfProduct.cshtml" />
+    <Content Include="Views\Offer\Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

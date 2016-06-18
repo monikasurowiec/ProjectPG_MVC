@@ -18,13 +18,8 @@ namespace ProjectPG
 
         protected void Session_Start()
         {
-            Order order = new Order()
-            {
-                orderId = new Guid(),
-                orderProduct = new List<OrderProduct>()
-            };
-
-            Session["order"] = order;
+            SessionCart sessionCart = new SessionCart();
+            Session["sessionCart"] = sessionCart;
         }
     }
 }

@@ -63,21 +63,46 @@ namespace ProjectPG.Controllers
         public ActionResult AddOrder(int productId, int count)
         {
 
-            Order order = (Order) Session["order"];
+            SessionCart sessionCart = (SessionCart) Session["sessionCart"];
 
-            OrderProduct product = new OrderProduct()
-            {
-                productId = productId,
-                orderId = order.orderId,
-                count = count
-            };
+            int n = sessionCart.AddProduct(
+                new OrderProduct()
+                {
+                    productId = productId,
+                    count = count,
+                    Product = db.Products.Where(p => p.productId == productId).Single()
+                    }
+                );
 
-            order.orderProduct.Add(product);
 
-            Session["order"] = order;
+            Session["sessionCart"] = sessionCart;
+            return Content(n.ToString()); ;
+        }
 
+        public ActionResult DeleteOrder(int productId)
+        {
+
+            SessionCart sessionCart = (SessionCart)Session["sessionCart"];
+
+            sessionCart.DeleteProduct(
+                new OrderProduct()
+                {
+                    productId = productId
+                }
+                );
+
+            //sessionCart.SumTotalPrices
+
+            Session["sessionCart"] = sessionCart;
             return Content("1"); ;
         }
 
+        public ActionResult Cart()
+        {
+            SessionCart sessionCart = (SessionCart)Session["sessionCart"];
+            ViewBag.productInCart = sessionCart.order.orderProduct;
+
+            return View();
+        }
     }
 }

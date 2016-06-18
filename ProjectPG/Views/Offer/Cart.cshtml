@@ -1,0 +1,69 @@
+﻿@{
+    List<ProjectPG.Models.OrderProduct> productInCart = ViewBag.productInCart;
+}
+@{
+    ViewBag.Title = "Koszyk";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+
+        $('.js-delete').click(function () {
+
+            var $produkt = $(this).closest('.js-product');
+            var productId = $produkt.attr('data-productId');
+            var productName = $produkt.find('.js-productName').text();
+            //var count = $produkt.find('input').val();
+
+            $.ajax({
+                method: 'GET',
+                url: '/Offer/DeleteOrder',
+                data: {
+                    'productId': productId,
+                    }
+               })
+              .done(function (msg) {
+                  if (msg == 1) {
+                      alert("Usunięto pozycję " + productName +"z Twojego koszyka zakupów");
+                      $produkt.remove();
+                      //var quantity = parseInt($("#quantity").text()) + 1;
+                      //$("#quantity").text(quantity);
+
+                  }
+                  else {
+                      alert("Nie udało się usunąć produktu z koszyka");
+                  }
+              });
+        });
+
+    });
+</script>
+<div>
+    <h2>Lista produktów w koszyku</h2>
+    @if (productInCart.Count == 0)
+    {
+        <p>
+            Brak produktów w koszyku.
+        </p>
+    }
+
+    <div class="site-content">
+        @foreach (var product in productInCart)
+        {
+            <div class="product-info js-product" data-productId="@product.productId">
+                <img class="products-index" src="~/Content/ProductsFotos/@product.Product.productPictureName" />
+
+                <div class="product-txt">
+                    <h4 class="js-productName">@product.Product.productName</h4>
+                    <p>
+                        <span>@product.Product.productPrice</span>
+                    </p>
+                    <p>ilość:</p><span>@product.count</span>
+                    <div class="order js-delete">Usuń</div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        }
+
+    </div>
+</div>

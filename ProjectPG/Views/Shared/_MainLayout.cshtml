@@ -4,7 +4,7 @@
 }
 @using ProjectPG.Models
 @{
-    var order = (Order) Session["order"] ;
+    var sessionCart = (SessionCart) Session["sessionCart"] ;
 
     /*int quantity = 0;
     foreach (OrderProduct orderProduct in order.orderProduct)
@@ -35,7 +35,7 @@
             </div>
             <div style="float:right">
                 <a class="top-menu-buttons" href="@Url.Content("~/")">Zamówienie</a>
-                <div>Ilość: <spam id="quantity">@order.orderProduct.Count</spam></div>
+                <div>Ilość: <spam id="quantity">@sessionCart.order.orderProduct.Count</spam></div>
             </div>
             <div style="clear:both;"></div>
         </div>

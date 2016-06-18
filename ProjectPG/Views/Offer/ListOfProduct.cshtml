@@ -25,9 +25,10 @@
                       alert("Dodano produkt " + productName);
                       var quantity = parseInt($("#quantity").text()) + 1;
                       $("#quantity").text(quantity);
-                  }
-                  else {
-                      alert("Nie dodano poduktu");
+                  } else if (msg == 0) {
+                      alert("Zwiększono ilość produktu w koszyku");
+                  } else {
+                      alert("Coś poszło nie tak. Spróbuj ponownie.");
                   }
               });
         });

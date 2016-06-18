@@ -34,7 +34,7 @@
                 <a class="top-menu-buttons" href="@Url.Action("List", "Offer", new { typename = "wszystko"})">Produkty</a>
             </div>
             <div style="float:right">
-                <a class="top-menu-buttons" href="@Url.Content("~/")">Zamówienie</a>
+                <a class="top-menu-buttons" href="@Url.Action("Cart", "Offer")">Zamówienie</a>
                 <div>Ilość: <spam id="quantity">@sessionCart.order.orderProduct.Count</spam></div>
             </div>
             <div style="clear:both;"></div>

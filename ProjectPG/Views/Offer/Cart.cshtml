@@ -20,11 +20,11 @@
                 url: '/Offer/DeleteOrder',
                 data: {
                     'productId': productId,
-                    }
-               })
+                }
+            })
               .done(function (msg) {
                   if (msg == 1) {
-                      alert("Usunięto pozycję " + productName +"z Twojego koszyka zakupów");
+                      alert("Usunięto pozycję " + productName + "z Twojego koszyka zakupów");
                       $produkt.remove();
                       //var quantity = parseInt($("#quantity").text()) + 1;
                       //$("#quantity").text(quantity);
@@ -38,32 +38,46 @@
 
     });
 </script>
+
 <div>
-    <h2>Lista produktów w koszyku</h2>
-    @if (productInCart.Count == 0)
-    {
-        <p>
-            Brak produktów w koszyku.
-        </p>
-    }
-
-    <div class="site-content">
-        @foreach (var product in productInCart)
-        {
-            <div class="product-info js-product" data-productId="@product.productId">
-                <img class="products-index" src="~/Content/ProductsFotos/@product.Product.productPictureName" />
-
-                <div class="product-txt">
-                    <h4 class="js-productName">@product.Product.productName</h4>
-                    <p>
-                        <span>@product.Product.productPrice</span>
-                    </p>
-                    <p>ilość:</p><span>@product.count</span>
-                    <div class="order js-delete">Usuń</div>
-                </div>
-                <div style="clear:both;"></div>
+    <div class="content">
+        <div id="side-bar">
+            <div class="menu-buttons">
+                <a href="@Url.Action("List","Offer", new { typename = "wszystko" })" )>Kontynuuj zamówienie</a>
             </div>
-        }
+            <div class="menu-buttons">Podsumowanie</div>
 
+        </div>
+
+
+        <div class="site-content">
+            <h2> Zawartość koszyka </h2>
+
+            @{
+                if (productInCart.Count == 0)
+                {
+                    <h3>Twój koszyk jest pusty</h3>
+                }
+            }
+
+            @foreach (var product in productInCart)
+            {
+                <div class="product-info js-product" data-productId="@product.productId">
+                    <img class="products-index" src="~/Content/ProductsFotos/@product.Product.productPictureName" />
+
+                    <div class="product-txt">
+                        <h4 class="js-productName">@product.Product.productName</h4>
+                        <p>
+                            <span>@product.Product.productPrice</span>
+                        </p>
+                        <p>ilość:</p><span>@product.count</span>
+                        <div class="order js-delete">Usuń</div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            }
+
+        </div>
+        <div style="clear:both;"></div>
     </div>
 </div>

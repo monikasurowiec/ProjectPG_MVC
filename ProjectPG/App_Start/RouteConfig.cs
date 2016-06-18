@@ -13,11 +13,11 @@ namespace ProjectPG
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                name: "ProductDetails",
-                url: "{productname}.html",
-                defaults: new { controller = "Offer", action = "Details" }
-                );
+            //routes.MapRoute(
+            //    name: "ProductDetails",
+            //    url: "{productname}.html",
+            //    defaults: new { controller = "Offer", action = "Details" }
+            //    );
 
             routes.MapRoute(
                 name: "StaticPages",
@@ -29,6 +29,12 @@ namespace ProjectPG
                 name: "ProductList",
                 url: "produkty/{typename}",
                 defaults: new { controller = "Offer", action = "List" }
+                );
+
+            routes.MapRoute(
+                name: "Cart",
+                url: "koszyk/zawartosc",
+                defaults: new { controller = "Offer", action = "Cart" }
                 );
 
             routes.MapRoute(

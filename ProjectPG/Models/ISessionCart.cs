@@ -9,7 +9,6 @@ namespace ProjectPG.Models
     public interface ISessionCart
     {
         decimal SumTotalPrices();
-        decimal SumTotalPrices(DiscountCode code);
         void ClearCart();
         int AddProduct(OrderProduct product);
     }

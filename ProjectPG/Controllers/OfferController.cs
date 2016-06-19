@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace ProjectPG.Controllers
 {
     public class OfferController : Controller
-    { 
+    {
 
         private DatabaseContext db = new DatabaseContext();
 
@@ -49,7 +49,7 @@ namespace ProjectPG.Controllers
             }
             else
             {
-                listProduct = db.Products.Where(l=>l.productType.typeUrlName==typename).ToList();
+                listProduct = db.Products.Where(l => l.productType.typeUrlName == typename).ToList();
             }
             ViewBag.listProduct = listProduct;
 
@@ -63,19 +63,29 @@ namespace ProjectPG.Controllers
         public ActionResult AddOrder(int productId, int count)
         {
 
-            SessionCart sessionCart = (SessionCart) Session["sessionCart"];
+            SessionCart sessionCart = (SessionCart)Session["sessionCart"];
 
             int n = sessionCart.AddProduct(
                 new OrderProduct()
                 {
                     productId = productId,
-                    count = count,
-                    Product = db.Products.Where(p => p.productId == productId).Single()
-                    }
+                    count = count
+                }
                 );
 
 
             Session["sessionCart"] = sessionCart;
+            return Content(n.ToString()); ;
+
+
+        }
+        public ActionResult AddOrderFromId(int productId)
+        {
+
+            SessionCart sessionCart = (SessionCart)Session["sessionCart"];
+            int n = sessionCart.AddProduct(productId);
+            Session["sessionCart"] = sessionCart;
+
             return Content(n.ToString()); ;
         }
 
@@ -97,11 +107,51 @@ namespace ProjectPG.Controllers
             return Content("1"); ;
         }
 
+        //api
+        public ActionResult Form(string firstName, string secondName, string email, string phone)
+        {
+
+            SessionCart sessionCart = (SessionCart)Session["sessionCart"];
+
+
+            bool valid = Validation.FormValidation(firstName, secondName, email, phone);
+
+            if (valid == true)
+            {
+                sessionCart.order.firstName = firstName;
+                sessionCart.order.lastName = secondName;
+                sessionCart.order.email = email;
+                sessionCart.order.phone = phone;
+
+
+
+                db.Orders.Add(sessionCart.order);
+                foreach (var orderProduct in sessionCart.order.orderProduct)
+                {
+                    db.OrderProducts.Add(orderProduct);
+                }
+                db.SaveChanges();
+
+
+            }
+            //sessionCart.SumTotalPrices
+
+            Session["sessionCart"] = sessionCart;
+            return Content("1"); ;
+        }
+
         public ActionResult Cart()
         {
             SessionCart sessionCart = (SessionCart)Session["sessionCart"];
-            ViewBag.productInCart = sessionCart.order.orderProduct;
 
+            for (int n = 0; n < sessionCart.order.orderProduct.Count; n++)
+            {
+                int productId = sessionCart.order.orderProduct[n].productId;
+                sessionCart.order.orderProduct[n].Product = db.Products.Where(p => p.productId == productId).Single();
+            }
+
+            ViewBag.productInCart = sessionCart.order.orderProduct;
+            ViewBag.totalPrice = sessionCart.SumTotalPrices();
             return View();
         }
     }

@@ -6,6 +6,39 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+<script>
+    $(document).ready(function () {
+
+        $('.js-order').click(function () {
+
+            var $produkt = $(this).closest('.js-product');
+            var productId = $produkt.attr('data-productId');
+            var productName = $produkt.attr('data-productName');
+            console.log(productId);
+            console.log(productName);
+            $.ajax({
+                method: 'GET',
+                url: '/Offer/AddOrderFromId',
+                data: {
+                    'productId': productId,
+                    }
+               })
+              .done(function (msg) {
+                  if (msg == 1) {
+                      alert("Dodano produkt " + productName + "do koszyka zakupów");
+                      var quantity = parseInt($("#quantity").text()) + 1;
+                      $("#quantity").text(quantity);
+                     
+                  } else if (msg == 0) {
+                      alert("Zwiększono ilość produktu w koszyku");
+                  } else {
+                      alert("Coś poszło nie tak. Spróbuj ponownie.");
+                  }
+              });
+        });
+
+    });
+</script>
 
 
 <div class="index-content">
@@ -31,9 +64,9 @@ nibus. Donec et mauris congue, sollicitudin lectus posuere, gravida ipsum.<br />
     <div id="four-products">
         @foreach (var prod in Model.RandomProducts)
         {
-            <div class="links-toproducts products-index"   style="background-image:url('/Content/ProductsFotos/@prod.productPictureName')">
+            <div class="links-toproducts products-index js-product" data-productId="@prod.productId" data-productName="@prod.productName" style="background-image:url('/Content/ProductsFotos/@prod.productPictureName')">
                 
-                <div style="margin-top:250px; margin-left:200px;">zamów</div>
+                <div class="order js-order"style="margin-top:250px; margin-left:200px; font-size:25px;">zamów</div>
             </div>
         }
 

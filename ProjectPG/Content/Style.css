@@ -247,3 +247,33 @@
     width:680px;
 
 }
+#cart-table
+{
+    width:1200px;
+    font-size:22px;
+    border:2px solid #6c6b6b;
+    
+
+}
+.rows-table
+{
+    height: 70px;
+   
+}
+.first-column
+{
+    width:600px;
+    padding-left:15px;
+}
+.second-column
+{
+    width:200px;
+}
+.third-column
+{
+    width:200px;
+}
+.last-column
+{
+    background-color:red
+}

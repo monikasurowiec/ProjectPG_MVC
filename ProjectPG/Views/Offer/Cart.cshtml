@@ -1,5 +1,6 @@
 ﻿@{
     List<ProjectPG.Models.OrderProduct> productInCart = ViewBag.productInCart;
+    decimal totalPrice = ViewBag.totalPrice;
 }
 @{
     ViewBag.Title = "Koszyk";
@@ -8,76 +9,110 @@
 <script>
     $(document).ready(function () {
 
-        $('.js-delete').click(function () {
+        $('#js-save').click(function () {
 
-            var $produkt = $(this).closest('.js-product');
-            var productId = $produkt.attr('data-productId');
-            var productName = $produkt.find('.js-productName').text();
-            //var count = $produkt.find('input').val();
+            var firstName = $('#js-name-input').val();
+            var secondName = $('#js-secondname-input').val();
+            var email = $('#js-mail-input').val();
+            var phone = $('#js-phone-input').val();
+
+            console.log(firstName);
+            console.log(secondName);
+            console.log(email);
 
             $.ajax({
                 method: 'GET',
-                url: '/Offer/DeleteOrder',
+                url: '/Offer/Form',
                 data: {
-                    'productId': productId,
+                    'firstName': firstName,
+                    'secondName': secondName,
+                    'email': email,
+                    'phone': phone
+
                 }
-            })
-              .done(function (msg) {
-                  if (msg == 1) {
-                      alert("Usunięto pozycję " + productName + "z Twojego koszyka zakupów");
-                      $produkt.remove();
-                      //var quantity = parseInt($("#quantity").text()) + 1;
-                      //$("#quantity").text(quantity);
 
-                  }
-                  else {
-                      alert("Nie udało się usunąć produktu z koszyka");
-                  }
-              });
+               
+                });
+            });
+
+            $('.js-delete').click(function () {
+
+                var $produkt = $(this).closest('.js-product');
+                var productId = $produkt.attr('data-productId');
+                var productName = $produkt.find('.js-productName').text();
+        
+
+                $.ajax({
+                    method: 'GET',
+                    url: '/Offer/DeleteOrder',
+                    data: {
+                        'productId': productId,
+                    }
+                })
+                  .done(function (msg) {
+                      if (msg == 1) {
+                          alert("Usunięto pozycję " + productName + "z Twojego koszyka zakupów");
+                          $produkt.remove();
+        
+                          location.reload();
+                          
+
+                      }
+                      else {
+                          alert("Nie udało się usunąć produktu z koszyka");
+                      }
+                  });
+            });
         });
-
-    });
+    
 </script>
 
 <div>
     <div class="content">
-        <div id="side-bar">
-            <div class="menu-buttons">
-                <a href="@Url.Action("List","Offer", new { typename = "wszystko" })" )>Kontynuuj zamówienie</a>
-            </div>
-            <div class="menu-buttons">Podsumowanie</div>
+        <h2> Zawartość koszyka </h2>
 
-        </div>
-
-
-        <div class="site-content">
-            <h2> Zawartość koszyka </h2>
-
-            @{
-                if (productInCart.Count == 0)
-                {
-                    <h3>Twój koszyk jest pusty</h3>
-                }
-            }
-
-            @foreach (var product in productInCart)
+        @{
+            if (productInCart.Count == 0)
             {
-                <div class="product-info js-product" data-productId="@product.productId">
-                    <img class="products-index" src="~/Content/ProductsFotos/@product.Product.productPictureName" />
+                <h3>Twój koszyk jest pusty</h3>
+            }
+            else
+            {
+                <table id="cart-table">
 
-                    <div class="product-txt">
-                        <h4 class="js-productName">@product.Product.productName</h4>
-                        <p>
-                            <span>@product.Product.productPrice</span>
-                        </p>
-                        <p>ilość:</p><span>@product.count</span>
-                        <div class="order js-delete">Usuń</div>
-                    </div>
-                    <div style="clear:both;"></div>
-                </div>
+                    
+                    @foreach (var product in productInCart)
+                    { 
+                    decimal productPrice = product.Product.productPrice * product.count;
+
+                        <tr class="rows-table js-product" data-productId="@product.productId">
+                            <td class="first-column js-productName">@product.Product.productName</td>
+                            <td class="second-column">ilość: @product.count</td>
+                            <td class="third-column">cena: @productPrice<span>zł</span></td>
+
+                            <td class="last-column js-delete">usuń</td>
+                        </tr>
+                    }
+                    
+             
+                    <tr>
+                        <td></td>
+                        <td> Suma: </td>
+                        <td> @totalPrice </td>
+                    </tr>
+                </table>
+                <h2>Twoje dane:</h2>
+                <div>imię: <input id="js-name-input"/></div>
+                <div>nazwisko: <input id="js-secondname-input"/></div>
+                <div>e-mail: <input id="js-mail-input"/></div>
+                <div>telefon: <input id="js-phone-input"/></div>
+
+                <div id="js-save">Zakończ zamówienie</div>
             }
 
-        </div>
-        <div style="clear:both;"></div>
+        }
+
+
+
     </div>
 </div>

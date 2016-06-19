@@ -17,6 +17,7 @@ namespace ProjectPG.Models
         public string lastName { get; set; }
 
         public string email { get; set; }
+        public string phone { get; set; }
 
         public DateTime dataCreated { get; set; }
         public bool isDiscount { get; set; }

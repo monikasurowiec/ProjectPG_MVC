@@ -66,7 +66,8 @@ nibus. Donec et mauris congue, sollicitudin lectus posuere, gravida ipsum.<br />
         {
             <div class="links-toproducts products-index js-product" data-productId="@prod.ProductId" data-productName="@prod.ProductName" style="background-image:url('/Content/ProductsFotos/@prod.ProductPictureName')">
                 
-                <div class="order js-order"style="margin-top:250px; margin-left:200px; font-size:25px;">zamów</div>
+                <div class="order-div" title="@prod.ProductName" >@prod.ProductPrice<span>zł</span><div class="order-button js-order">zamów</div></div>
+                <div style="clear:both"></div>
             </div>
         }
 

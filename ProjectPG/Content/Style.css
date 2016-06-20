@@ -261,3 +261,38 @@
 {
     background-color:red
 }
+
+#quantity-div
+{
+    color:#808080;
+    font-size:20px;
+    float:right;
+    min-width:150px;
+    padding-top:14px;
+    padding-right:8px;
+}
+
+.order-div
+{
+    margin-top: 245px;
+    padding: 12px;
+    font-size: 22px;
+    background-color: #a71515;
+    text-align: center;
+    color:white;
+    font-family: 'Kaushan Script', cursive;
+}  
+
+.order-button
+{
+    margin-left:20px;
+    float:right;
+}
+
+.order-button:hover
+{
+    cursor:pointer;
+    padding: 8px;
+    background-color:tomato;
+
+}    

@@ -83,20 +83,22 @@
                     {
                         decimal productPrice = product.Product.ProductPrice * product.Count;
 
-                        <tr class="rows-table js-product" data-productId="@product.ProductId>
-                            <td class="first-column js-productName">@product.Product.ProductName</td>
-                            <td class="second-column">ilość: @product.Count</td>
-                            <td class="third-column">cena: @productPrice<span>zł</span></td>
-
-                            <td class="last-column js-delete">usuń</td>
-                        </tr>
-                    }
-                    <tr>
-                        <td></td>
-                        <td> Suma: </td>
-                        <td> @totalPrice </td>
+                     
+                     <tr class="rows-table js-product" data-productId="@product.ProductId">
+                         <td class="first-column js-productName">@product.Product.ProductName</td>
+                         <td class="second-column">ilość: @product.Count</td>
+                         <td class="third-column">cena: @productPrice<span>zł</span></td>
+                         <td class="last-column js-delete">usuń</td>
+                     </tr>
+                }
+                     <tr>
+                        <td class="first-column"></td>
+                        <td class="second-column"></td>
+                        <td class="third-column"> Suma: </td>
+                        <td "last-column js-delete"> @totalPrice </td>
                     </tr>
                 </table>
+
                 <h2>Twoje dane:</h2>
                 <div>imię: <input id="js-name-input" /></div>
                 <div>nazwisko: <input id="js-secondname-input" /></div>
@@ -108,4 +110,5 @@
         }
 
     </div>
+
 </div>

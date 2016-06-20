@@ -6,55 +6,51 @@ using System.Web;
 
 namespace ProjectPG.Models
 {
-    public class SessionCart// : ISessionCart
+    public class SessionCart : ISessionCart
     {
         public Order order { get; set; }
 
 
-
-
         public SessionCart()
         {
-            order = new Order() {
-                orderId = Guid.NewGuid(),
-                orderProduct = new List<OrderProduct>()
+            order = new Order()
+            {
+                OrderId = Guid.NewGuid(),
+                OrderProduct = new List<OrderProduct>()
             };
         }
+
+
         public decimal SumTotalPrices()
         {
             decimal total = 0.0m;
-            foreach (var item in order.orderProduct)
+            foreach (var item in order.OrderProduct)
             {
-                total += item.count * item.Product.productPrice;
+                total += item.Count * item.Product.ProductPrice;
             }
             return total;
         }
 
 
-        public void ClearCart()
-        {
-
-        }
-
         public int AddProduct(int productId)
         {
             return AddProduct(new OrderProduct()
             {
-                productId = productId,
-                count = 1
+                ProductId = productId,
+                Count = 1
             });
-
         }
+
 
         public int AddProduct(OrderProduct product)
         {
-            product.orderId = this.order.orderId;
+            product.OrderId = this.order.OrderId;
 
             bool productInList = false;
             int n = 0;
-            foreach (var item in order.orderProduct)
+            foreach (var item in order.OrderProduct)
             {
-                if (item.productId == product.productId)
+                if (item.ProductId == product.ProductId)
                 {
                     productInList = true;
                     break;
@@ -64,25 +60,24 @@ namespace ProjectPG.Models
 
             if (productInList == true)
             {
-                order.orderProduct[n].count += product.count;
+                order.OrderProduct[n].Count += product.Count;
                 return 0;
             }
             else
             {
-                order.orderProduct.Add(product);
+                order.OrderProduct.Add(product);
                 return 1;
-
             }
-
         }
+
 
         public void DeleteProduct(OrderProduct product)
         {
             bool productInList = false;
             int n = 0;
-            foreach (var item in this.order.orderProduct)
+            foreach (var item in this.order.OrderProduct)
             {
-                if (item.productId == product.productId)
+                if (item.ProductId == product.ProductId)
                 {
                     productInList = true;
                     break;
@@ -91,11 +86,9 @@ namespace ProjectPG.Models
             }
             if (productInList == true)
             {
-                order.orderProduct.RemoveAt(n);
+                order.OrderProduct.RemoveAt(n);
             }
-
         }
-
 
     }
 }

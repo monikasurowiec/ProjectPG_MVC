@@ -4,14 +4,9 @@
 }
 @using ProjectPG.Models
 @{
-    var sessionCart = (SessionCart) Session["sessionCart"] ;
+    var sessionCart = (SessionCart)Session["sessionCart"];
 
-    /*int quantity = 0;
-    foreach (OrderProduct orderProduct in order.orderProduct)
-    {
-        quantity = quantity + orderProduct.count;
-    }*/
- }
+}
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,7 +30,7 @@
             </div>
             <div style="float:right">
                 <a class="top-menu-buttons" href="@Url.Action("Cart", "Offer")">Zamówienie</a>
-                <div>Ilość: <spam id="quantity">@sessionCart.order.orderProduct.Count</spam></div>
+                <div>Ilość: <spam id="quantity">@sessionCart.order.OrderProduct.Count</spam></div>
             </div>
             <div style="clear:both;"></div>
         </div>

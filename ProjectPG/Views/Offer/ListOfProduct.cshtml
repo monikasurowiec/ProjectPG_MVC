@@ -39,13 +39,13 @@
 <div class="site-content">
     @foreach (var product in listProduct)
     {
-        <div class="product-info js-product" data-productId="@product.productId">
-            <img class="products-index" src="~/Content/ProductsFotos/@product.productPictureName" />
+        <div class="product-info js-product" data-productId="@product.ProductId">
+            <img class="products-index" src="~/Content/ProductsFotos/@product.ProductPictureName" />
 
             <div class="product-txt">
-                <h4 class="js-productName">@product.productName</h4>
+                <h4 class="js-productName">@product.ProductName</h4>
                 <p>
-                    <span>@product.productPrice</span>
+                    <span>@product.ProductPrice</span>
                 </p>
                 <input type="number"  name="quantity" min="1" max="10" value="1">
                 <div class="order js-order">Zamów</div>

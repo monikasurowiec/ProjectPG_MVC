@@ -16,7 +16,7 @@ namespace ProjectPG.Controllers
         //GET:Home
         public ActionResult Index()
         {
-            var random = db.Products.Where(r=> !r.noSeason).OrderBy(r=> Guid.NewGuid()).Take(4).ToList();
+            var random = db.Products.OrderBy(r=> Guid.NewGuid()).Take(4).ToList();
 
 
             var homeModel = new HomeViewModel()

@@ -7,21 +7,17 @@ namespace ProjectPG.Models
 {  
     public class Product
     {
-        public int productId { get; set; }
-        public int productTypeId { get; set; }
+        public int ProductId { get; set; }
+        public int ProductTypeId { get; set; }
 
-        public string productName { get; set; }
-        public string productUrlName { get; set; }
-        
-        public string productPictureName { get; set; }
-        public string productDescription { get; set; }
-        public int productCapacity { get; set; }
+        public string ProductName { get; set; } 
+        public string ProductPictureName { get; set; }
+        public string ProductDescription { get; set; }
 
-        public decimal productPrice { get; set; }
-        public bool isCuttingPrice { get; set; }
+        public int ProductCapacity { get; set; }
 
-        public bool noSeason { get; set; }
+        public decimal ProductPrice { get; set; }
 
-        public virtual ProductType productType { get; set; }
+        public virtual ProductType ProductType { get; set; }
     }
 }

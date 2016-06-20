@@ -57,10 +57,7 @@ namespace ProjectPG.Models
             mail,
             name
         }
-
-
     }
-
 }
 
     

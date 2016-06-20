@@ -8,21 +8,18 @@ namespace ProjectPG.Models
 {
     public class Order
     {
-        public Guid orderId { get; set; }
+        public Guid OrderId { get; set; }
 
-        [StringLength(30)]
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        [StringLength(40)]
-        public string lastName { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
 
-        public string email { get; set; }
-        public string phone { get; set; }
-
-        public DateTime dataCreated { get; set; }
-        public bool isDiscount { get; set; }
-        public decimal totalPrice { get; set; }
-        public List<OrderProduct> orderProduct { get; set; }
+        public DateTime DataCreated { get; set; }
+   
+        public decimal TotalPrice { get; set; }
+        public List<OrderProduct> OrderProduct { get; set; }
     }
 }
     

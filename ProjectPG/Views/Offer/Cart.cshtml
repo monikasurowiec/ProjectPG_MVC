@@ -6,6 +6,8 @@
     ViewBag.Title = "Koszyk";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+
+
 <script>
     $(document).ready(function () {
 
@@ -28,44 +30,41 @@
                     'secondName': secondName,
                     'email': email,
                     'phone': phone
-
                 }
-
-               
-                });
-            });
-
-            $('.js-delete').click(function () {
-
-                var $produkt = $(this).closest('.js-product');
-                var productId = $produkt.attr('data-productId');
-                var productName = $produkt.find('.js-productName').text();
-        
-
-                $.ajax({
-                    method: 'GET',
-                    url: '/Offer/DeleteOrder',
-                    data: {
-                        'productId': productId,
-                    }
-                })
-                  .done(function (msg) {
-                      if (msg == 1) {
-                          alert("Usunięto pozycję " + productName + "z Twojego koszyka zakupów");
-                          $produkt.remove();
-        
-                          location.reload();
-                          
-
-                      }
-                      else {
-                          alert("Nie udało się usunąć produktu z koszyka");
-                      }
-                  });
             });
         });
-    
+
+
+        $('.js-delete').click(function () {
+
+            var $produkt = $(this).closest('.js-product');
+            var productId = $produkt.attr('data-productId');
+            var productName = $produkt.find('.js-productName').text();
+
+            $.ajax({
+                method: 'GET',
+                url: '/Offer/DeleteOrder',
+                data: {
+                    'productId': productId,
+                }
+            })
+              .done(function (msg) {
+                  if (msg == 1) {
+                      alert("Usunięto pozycję " + productName + "z Twojego koszyka zakupów");
+                      $produkt.remove();
+
+                      location.reload();
+
+                  }
+                  else {
+                      alert("Nie udało się usunąć produktu z koszyka");
+                  }
+              });
+        });
+    });
+
 </script>
+
 
 <div>
     <div class="content">
@@ -80,21 +79,18 @@
             {
                 <table id="cart-table">
 
-                    
                     @foreach (var product in productInCart)
-                    { 
-                    decimal productPrice = product.Product.productPrice * product.count;
+                    {
+                        decimal productPrice = product.Product.ProductPrice * product.Count;
 
-                        <tr class="rows-table js-product" data-productId="@product.productId">
-                            <td class="first-column js-productName">@product.Product.productName</td>
-                            <td class="second-column">ilość: @product.count</td>
+                        <tr class="rows-table js-product" data-productId="@product.ProductId>
+                            <td class="first-column js-productName">@product.Product.ProductName</td>
+                            <td class="second-column">ilość: @product.Count</td>
                             <td class="third-column">cena: @productPrice<span>zł</span></td>
 
                             <td class="last-column js-delete">usuń</td>
                         </tr>
                     }
-                    
-             
                     <tr>
                         <td></td>
                         <td> Suma: </td>
@@ -102,17 +98,14 @@
                     </tr>
                 </table>
                 <h2>Twoje dane:</h2>
-                <div>imię: <input id="js-name-input"/></div>
-                <div>nazwisko: <input id="js-secondname-input"/></div>
-                <div>e-mail: <input id="js-mail-input"/></div>
-                <div>telefon: <input id="js-phone-input"/></div>
+                <div>imię: <input id="js-name-input" /></div>
+                <div>nazwisko: <input id="js-secondname-input" /></div>
+                <div>e-mail: <input id="js-mail-input" /></div>
+                <div>telefon: <input id="js-phone-input" /></div>
 
                 <div id="js-save">Zakończ zamówienie</div>
             }
-
         }
-
-
 
     </div>
 </div>

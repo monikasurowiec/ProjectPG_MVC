@@ -11,7 +11,6 @@ namespace ProjectPG.DAL
     public class DatabaseContext : DbContext
     {
         public DatabaseContext()
-          //  :base("ConnectToDatabase")
         {
 
         }

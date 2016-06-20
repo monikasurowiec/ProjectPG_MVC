@@ -7,11 +7,10 @@ namespace ProjectPG.Models
 {
     public class OrderProduct
     {
-        public int orderProductId { get; set; }
-        public Guid orderId { get; set; }
-        public int productId { get; set; }
-        public int count { get; set; }
-        //public decimal productOrderPrice { get; set; }
+        public int OrderProductId { get; set; }
+        public Guid OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int Count { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual Order Order { get; set; } 

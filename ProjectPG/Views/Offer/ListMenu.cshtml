@@ -1,16 +1,16 @@
-﻿@*@model IEnumerable<ProjectPG.Models.ProductType>*@
-
+﻿
 @{
     List<ProjectPG.Models.ProductType> listProductType = ViewBag.listProductType;
     string activeTypeName = ViewBag.activeTypeName;
 }
 
+
 <div id="content">
     <div id="side-bar">
         @foreach (var type in listProductType)
             {
-            <div class="menu-buttons @(activeTypeName==type.typeUrlName ? "active" : "")">
-                <a href="@Url.Action("List","Offer", new { typename = type.typeUrlName })" title="@type.typeDescription">@type.typeName</a>
+            <div class="menu-buttons @(activeTypeName==type.TypeUrlName ? "active" : "")">
+                <a href="@Url.Action("List","Offer", new { typename = type.TypeUrlName })" title="@type.TypeDescription">@type.TypeName</a>
             </div>
         }
 

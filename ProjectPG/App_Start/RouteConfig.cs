@@ -13,12 +13,6 @@ namespace ProjectPG
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    name: "ProductDetails",
-            //    url: "{productname}.html",
-            //    defaults: new { controller = "Offer", action = "Details" }
-            //    );
-
             routes.MapRoute(
                 name: "StaticPages",
                 url: "podstrona/{staticname}",

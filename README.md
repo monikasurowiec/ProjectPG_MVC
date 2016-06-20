@@ -1,0 +1,20 @@
+# ProjectPG_MVC
+
+Projekt witryny do zamawiania jedzenia z odbiorem w punkcie.
+
+Aplikacja stworzona w ASP.NET MVC z zastosowaniem Entity.
+
+Na stronie startowej zaprezentowane są 4 losowe dania (użytkownik ma z tego widoku możliwość dodania ich do koszyka).
+Na środku strony widnieje duży czerowny przycisk, który prowadzi do właściwej części witryny, która jest przeznaczona do zamawiania produktow.
+Z lewej strony widoczna jest lista typów produktów (wybrana kategoria jest odpowiednio oznaczana).
+Z prawej strony wyświetlane są produkty należące do danego typu (dodatkowo opcja WSZYSTKO, która jest automatycznie "wybierana" podczas wchodzenia na widok.
+Gdy dodamy pierwszy produkt do koszyka w prawym górnym rogu wyświetli się wartość 1, która oznacza ilość produktów w koszyku,
+Gdy dodamy dowolną ilość drugiego produktu wartość ta zmieni się o "1" - wartość ta oznacza ilość pozycji w koszyku.
+Gdy dodajemy produkt, który już znajduje się w koszyku, wartość ta się nie zwiększa.
+
+Po dodaniu produktów do koszyka możemy wejść do widoku "koszyka", gdzie widoczna będzie zawartość naszego koszyka razem z sumą produktów,
+które się w nim znajdują.
+Na widoku koszyka mamy możliwość wyrzucania pozycji z koszyka oraz zakończenie zamówienia.
+Aby zakończyć zamówienie musimy podać swoje dane: imię, nazwisko, nr tel, e-mail.
+
+Dodatkowo na dole strony, na każdym widoku widoczne są linki do statycznych podstron tj. Kontakt, Regulamin.

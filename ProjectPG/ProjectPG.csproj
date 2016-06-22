@@ -165,6 +165,7 @@
     <Content Include="prototype\Store.html" />
     <Content Include="prototype\StorePage.html" />
     <Content Include="Content\Style.css" />
+    <Content Include="READ ME\readMe.html" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />

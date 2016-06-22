@@ -89,6 +89,5 @@ namespace ProjectPG.Models
                 order.OrderProduct.RemoveAt(n);
             }
         }
-
     }
 }
